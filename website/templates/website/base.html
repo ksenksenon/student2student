@@ -1,134 +1,188 @@
- {% load staticfiles %}
-
-
+<!DOCTYPE html>
+{% load staticfiles %}
 <head>
-    <style></style>
-    <style></style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet"/>
+    <title></title>
+    <style type="text/css">
 
-    <title>Студент студенту</title>
-    <style>
-        html,
-        body {
-            height: 100%;
-            width: 100%;
-            background-color: aliceblue !important;
+        html, body {
+          width: 100%;
+          height: 100%;
+          background-color: aliceblue;
         }
 
-        body {
-            position: relative;
-            min-height: 100%;
+        .navbar {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
         }
 
-        .container,
-        .row.justify-content-center.align-items-center {
-            height: 100%;
-            min-height: 100%;
+        .logo img{
+          width: 200px;
+          height: 120px;
         }
 
-        header {
-            max-height: 100px;
+        .radiobuttons{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 23px;
         }
 
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
+        .radio {
+          padding: 5px;
         }
 
-        p {
-            text-align: center;
-            vertical-align: center;
+        .search {
+          margin: 50px;
         }
 
-        .logo {
-            max-height: inherit;
-            width: 60%;
+        .search input {
+          width: 400px;
         }
 
-        main {
-            float: left;
-            margin: 0 1.5% 24px 1.5%;
-            width: 62%;
-            padding-bottom: 30px;
-        }
-
-        aside {
-            float: right;
-            margin: 0 1.5% 24px 1.5%;
-            width: 30%;
+        .main {
+          display: flex;
+          flex-direction: row;
         }
 
         .desk {
-            border-radius: 6px;
-            color: brown;
-            font-weight: 600;
-            display: block;
-            padding: 24px;
-            margin-top: 10px;
-            text-align: center;
-            height: 80%;
+          border-radius: 6px;
+          color: brown;
+          font-weight: 600;
+          display: block;
+          padding: 24px;
+          margin-top: 10px;
+          text-align: center;
+          height: 80%;
+          width: 80%;
+          margin: 28px;
+          height: -webkit-fill-available;
+          box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
-        .all {
-            background-color: burlywood;
+        .allAds{
+          background-color: burlywood;
+          width: 70%;
         }
 
-        .my {
-            background-color: bisque
+        .myAds{
+          width: 30%;
+          background-color: bisque;
         }
 
+        .profile {
+          right: 0;
+
+          margin-right: 20px;
+        }
+
+        .buttons {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .buttons input {
+          margin: 30px;
+          width: 180px;
+          height: 50px;
+        }
+
+        .toInstruction{
+          position: fixed;
+          right: 0;
+        }
+
+        .toInstruction input {
+
+        }
+
+        .start {
+          width: 100%;
+          height: 100%;
+          background-image: url({% static 'images/start.jpg' %});
+          background-size: cover;
+        }
+
+        .soon input, .back input{
+          width: 60px;
+          height: 30px;
+        }
+        
     </style>
-
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <header>
-        <div class="container-fluid" st>
-            <div class="row">
-                <div class="col-sm-2">
-                    <img class="logo" src="{% static 'images/logo.png' %}" alt="">
-                    <!--background: url({% static 'images/logo.png' %}) no-repeat center/cover;-->
-                </div>
-                <div class="col-sm-2" style="margin-top: 10px;">
-                    <div class="radio">
-                        <label><input type="radio" name="optradio">Помочь</label>
-                    </div>
-                    <div class="radio">
-                        <label><input type="radio" name="optradio">Нужна помощь</label>
-                    </div>
-                    <div class="radio">
-                        <label><input type="radio" name="optradio">Все объявления</label>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <form action="" method="get">
-                        <input name="s" placeholder="Введите название предмета..." type="search">
-                        <button type="submit">Поиск</button>
-                    </form>
-                </div>
-                <div class="col-sm-2">
-                    <p>profile</p>
-                </div>
-            </div>
+
+<div class="start" id="startPage">
+<div class="buttons">
+  <div class="signIn">
+            <input type="button" value="Войти" onclick="" />
         </div>
-    </header>
-    <main>
-        <div class="desk all">Все объявления</div>
-    </main>
-    <aside>
-        <div class="desk my">Мои объявления</div>
-    </aside>
-    <footer>
-        <p>Авторы: Ксения Катаева, Альберт Абдульманов <br> Пермь, 2018</p>
+        <div class="signUp">
+            <input type="button" value="Регистрация" onclick="" />
+        </div>
 
-    </footer>
+        <div class="toInstruction">
+            <input type="button" value="Узнать больше ➡" onclick="View.setPage(Page.Instruction);" />
+        </div>
+        </div>
+</div>
 
+<div class="instruction" id="instructionPage">
+Подробная инструкция...
+        <div class="back">
+            <input type="button" value="⬅" onclick="View.setPage(Page.Start);" />
+        </div>
+        <div class="soon">
+            <input type="button" value="➡" onclick="View.setPage(Page.Site);" />
+        </div>
+</div>
+
+<div class="site" id="sitePage">
+<div class="navbar">
+  <div class="logo">
+    <img class="logo" src="{% static 'images/logo.png' %}" alt="">
+  </div>
+  <div class="radiobuttons">
+    <label class="radio"><input type="radio" name="optradio" /> Помочь</label>
+    <label class="radio"><input type="radio" name="optradio"/> Нужна помощь</label>
+    <label class="radio"><input type="radio" name="optradio"/> Все объявления</label>
+  </div>
+  <div class="search">
+
+        <form action="" method="get">
+            <input name="s" placeholder="Введите название предмета..." type="search">
+            <button type="submit">Поиск</button>
+        </form>
+    </div>
+  <div class="profile">Profile</div>
+</div>
+
+<div class="main">
+<div class="desk allAds">Все объявления</div>
+<div class="desk myAds">Мои объявления</div>
+</div>
+</div>
+
+<script type="text/javascript">
+var Page = {
+  Start: 0,
+  Instruction: 1,
+  Site: 2
+}
+
+var View = {
+  startPage: document.getElementById("startPage"),
+ instructionPage: document.getElementById("instructionPage"),
+ sitePage: document.getElementById("sitePage"),
+
+setPage: function(page) {
+                this.startPage.style.display = page == Page.Start ? "" : "none";
+                this.instructionPage.style.display = page == Page.Instruction ? "" : "none";
+                this.sitePage.style.display = page == Page.Site ? "" : "none";
+            }
+}
+View.setPage(Page.Start);
+    </script>
 </body>
+</html>
