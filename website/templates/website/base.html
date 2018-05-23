@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
 
     <meta charset="utf-8">
@@ -15,7 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </head>
-
 <body>
 
     <div class="start" id="startPage">
@@ -62,12 +60,43 @@
                 </form>
             </div>
             <div class="profile">
-                <img class="logo" src="https://psv4.userapi.com/c834601/u63135510/docs/d12/a09aeec3c64b/landau.png" alt=""></div>
+                <img class="logo" src="https://hb.bizmrg.com/amblog/landau.png" alt=""></div>
         </div>
 
         <div class="main">
-            <div class="desk allAds">Все объявления</div>
-            <div class="desk myAds">Мои объявления</div>
+            <div class="desk allAds">
+              <span>Все объявления</span>
+<div class="row">
+  <div class="ad" id="ad1">
+    <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+  </div>
+  <div class="ad" id="ad2">
+    <span class="card" style="background-image:url('{% static "images/black_card.png" %}');"></span>
+  </div>
+  <div class="ad" id="ad3">
+    <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+  </div>
+  </div>
+  <div class="row">
+    <div class="ad" id="ad4">
+      <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+    </div>
+    <div class="ad" id="ad5">
+      <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+    </div>
+    </div>
+</div>
+  <div class="desk myAds">
+      <span>Мои объявления</span>
+      <div class="ad" id="ad6">
+        <span class="card" style="background-image:url('{% static "images/black_card.png" %}');"></span>
+      </div>
+      <div class="ad" id="ad7">
+        <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+      </div>
+  </div>
+
+            </div>
         </div>
     </div>
 
@@ -90,6 +119,154 @@
             }
         }
         View.setPage(Page.Start);
+
+var card1 = document.getElementById('ad1');
+
+card1.onmousedown = function(e) {
+  card1.style.position = 'absolute';
+  moveAt(e);
+  document.body.appendChild(card1);
+  card1.style.zIndex = 1000; // показывать мяч над другими элементами
+  function moveAt(e) {
+    card1.style.left = e.pageX - card1.offsetWidth / 2 + 'px';
+    card1.style.top = e.pageY - card1.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = function(e) {
+    moveAt(e);
+  }
+
+  card1.onmouseup = function() {
+    document.onmousemove = null;
+    card1.onmouseup = null;
+  }
+}
+
+var card2 = document.getElementById('ad2');
+
+card2.onmousedown = function(e) {
+  card2.style.position = 'absolute';
+  moveAt(e);
+  document.body.appendChild(card2);
+  card2.style.zIndex = 1000; // показывать мяч над другими элементами
+  function moveAt(e) {
+    card2.style.left = e.pageX - card2.offsetWidth / 2 + 'px';
+    card2.style.top = e.pageY - card2.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = function(e) {
+    moveAt(e);
+  }
+
+  card2.onmouseup = function() {
+    document.onmousemove = null;
+    card2.onmouseup = null;
+  }
+}
+
+var card3 = document.getElementById('ad3');
+
+card3.onmousedown = function(e) {
+  card3.style.position = 'absolute';
+  moveAt(e);
+  document.body.appendChild(card3);
+  card3.style.zIndex = 1000; // показывать мяч над другими элементами
+  function moveAt(e) {
+    card3.style.left = e.pageX - card3.offsetWidth / 2 + 'px';
+    card3.style.top = e.pageY - card3.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = function(e) {
+    moveAt(e);
+  }
+
+  card3.onmouseup = function() {
+    document.onmousemove = null;
+    card3.onmouseup = null;
+  }
+}
+
+var card4 = document.getElementById('ad4');
+
+card4.onmousedown = function(e) {
+  card4.style.position = 'absolute';
+  moveAt(e);
+  document.body.appendChild(card4);
+  card4.style.zIndex = 1000; // показывать мяч над другими элементами
+  function moveAt(e) {
+    card4.style.left = e.pageX - card4.offsetWidth / 2 + 'px';
+    card4.style.top = e.pageY - card4.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = function(e) {
+    moveAt(e);
+  }
+
+  card4.onmouseup = function() {
+    document.onmousemove = null;
+    card4.onmouseup = null;
+  }
+}
+
+var card5 = document.getElementById('ad5');
+
+card5.onmousedown = function(e) {
+  card5.style.position = 'absolute';
+  moveAt(e);
+  document.body.appendChild(card5);
+  card5.style.zIndex = 1000; // показывать мяч над другими элементами
+  function moveAt(e) {
+    card5.style.left = e.pageX - card5.offsetWidth / 2 + 'px';
+    card5.style.top = e.pageY - card5.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = function(e) {
+    moveAt(e);
+  }
+
+  card5.onmouseup = function() {
+    document.onmousemove = null;
+    card5.onmouseup = null;
+  }
+}
+
+var card6 = document.getElementById('ad6');
+
+card6.onmousedown = function(e) {
+  card6.style.position = 'absolute';
+  moveAt(e);
+  document.body.appendChild(card6);
+  card6.style.zIndex = 1000; // показывать мяч над другими элементами
+  function moveAt(e) {
+    card6.style.left = e.pageX - card6.offsetWidth / 2 + 'px';
+    card6.style.top = e.pageY - card6.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = function(e) {
+    moveAt(e);
+  }
+
+  card6.onmouseup = function() {
+    document.onmousemove = null;
+    card6.onmouseup = null;
+  }
+}
+
+var card7 = document.getElementById('ad7');
+
+card7.onmousedown = function(e) {
+  card7.style.position = 'absolute';
+  moveAt(e);
+  document.body.appendChild(card7);
+  card7.style.zIndex = 1000; // показывать мяч над другими элементами
+  function moveAt(e) {
+    card7.style.left = e.pageX - card7.offsetWidth / 2 + 'px';
+    card7.style.top = e.pageY - card7.offsetHeight / 2 + 'px';
+  }
+  document.onmousemove = function(e) {
+    moveAt(e);
+  }
+
+  card7.onmouseup = function() {
+    document.onmousemove = null;
+    card7.onmouseup = null;
+  }
+}
+
 
     </script>
 </body>

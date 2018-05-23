@@ -83,6 +83,7 @@ body {
     margin: 30px;
     width: 180px;
     height: 50px;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
 }
 
 .toInstruction {
@@ -95,7 +96,7 @@ body {
 .start {
     width: 100%;
     height: 100%;
-    background: url("https://psv4.userapi.com/c848120/u63135510/docs/d1/6e3251908983/start.jpg") no-repeat center center fixed;
+    background: url("https://hb.bizmrg.com/amblog/start.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -103,4 +104,21 @@ body {
 .back input {
     width: 60px;
     height: 30px;
+}
+
+.ad {
+    height: 300px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin:20px;
+}
+
+.ad span.card {
+  background-size: cover;
+  width: inherit;
+  height: inherit;
+}
+
+#ad7 {
+  margin-top: 20px;
 }
