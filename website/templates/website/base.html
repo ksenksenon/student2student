@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet" />
     <title>Студент студенту</title>
@@ -26,7 +25,7 @@
             </div>
 
             <div class="toInstruction">
-                <input style="border: 2px solid white" type="button" class="btn btn-info" value="Как это работает" onclick="View.setPage(Page.Instruction);" />
+                <input style="border: 2px solid white" type="button" class="btn btn-info" value="Приступим" onclick="View.setPage(Page.Site);" />
             </div>
         </div>
     </div>
@@ -44,55 +43,58 @@
     <div class="site" id="sitePage">
         <div class="navbar">
             <div class="logo">
-                <img class="logo" src="{% static 'images/logo.png' %}" alt="">
+                <img class="logo" src="https://ib.bizmrg.com/amicebox/logo.png" alt="">
             </div>
             <div class="radiobuttons">
-                <label class="radio"><input type="radio" name="optradio" /> Помочь</label>
-                <label class="radio"><input type="radio" name="optradio"/> Нужна помощь</label>
-                <label class="radio"><input type="radio" name="optradio"/> Все объявления</label>
+                <label class="radio"><input type="radio" name="optradio" id="rad1" onchange="View.filter();"/> Помочь</label>
+                <label class="radio"><input type="radio" name="optradio" id="rad2" onchange="View.filter();"/> Нужна помощь</label>
+                <label class="radio"><input type="radio" name="optradio" id="rad3" onchange="View.filter();"/> Все объявления</label>
             </div>
             <div class="search">
 
-                <form class="form-inline" action="" method="get">
-                    <input class="form-control" name="s" placeholder="Введите название предмета..." type="search">
-                    <!--                    Короче на кнопку поиска надо поставить заглушку, которая не посылает get-запрос, а показывает карточки -->
-                    <button class="btn btn-primary btn-lg" type="submit">Поиск</button>
-                </form>
+                    <input name="s" placeholder=" Введите название предмета..." id="in" style="margin-right: 20px;">
+                    <button class="btn btn-primary btn-lg" type="submit" onclick="View.searchSubject();">Поиск</button>
+<div class="filters" style="font-size: 14px;">
+  <span class="numeric"> Рейтинг от <input type="number" name="quantity" min="1" max="5" value="4" style="width: 40px; height: 28px;"/></span>
+  <span style="margin-left: 10px;">Цена за час от <input type="text" style="width: 50px; height: 28px;"/></span>
+  <span style="margin-left: 10px;">до <input type="text" style="width: 50px; height: 28px;"/></span>
+  <span class="checkbox"><input  type="checkbox" style="width: 70px; margin-right: -18px;"/>Только проверенные аккаунты</span>
+</div>
             </div>
             <div class="profile">
-                <img class="logo" src="https://hb.bizmrg.com/amblog/landau.png" alt=""></div>
+                <img class="logo" src="https://ib.bizmrg.com/amicebox/Landau.jpg" alt=""></div>
         </div>
 
         <div class="main">
             <div class="desk allAds">
               <span>Все объявления</span>
 <div class="row">
-  <div class="ad" id="ad1">
-    <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+  <div class="ad" id="men1">
+    <span class="card" style="background-image:url('https://ib.bizmrg.com/amicebox/cards%20for%20site/_Ася.png');"></span>
   </div>
-  <div class="ad" id="ad2">
-    <span class="card" style="background-image:url('{% static "images/black_card.png" %}');"></span>
+  <div class="ad" id="men2">
+    <span class="card" style="background-image:url('https://ib.bizmrg.com/amicebox/cards%20for%20site/_Евгений.png');"></span>
   </div>
-  <div class="ad" id="ad3">
-    <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+  <div class="ad" id="math">
+    <span class="card" style="background-image:url('https://ib.bizmrg.com/amicebox/cards%20for%20site/_Ирина.png');"></span>
   </div>
   </div>
   <div class="row">
-    <div class="ad" id="ad4">
-      <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+    <div class="ad" id="rus">
+      <span class="card" style="background-image:url('https://ib.bizmrg.com/amicebox/cards%20for%20site/_Максим.png');"></span>
     </div>
-    <div class="ad" id="ad5">
-      <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+    <div class="ad" id="prog">
+      <span class="card" style="background-image:url('https://ib.bizmrg.com/amicebox/cards%20for%20site/_Марк.png');"></span>
     </div>
     </div>
 </div>
   <div class="desk myAds">
       <span>Мои объявления</span>
-      <div class="ad" id="ad6">
-        <span class="card" style="background-image:url('{% static "images/black_card.png" %}');"></span>
+      <div class="ad" id="ad1">
+        <span class="card" style="background-image:url('https://ib.bizmrg.com/amicebox/cards%20for%20site/_Лев%20белая.png');"></span>
       </div>
-      <div class="ad" id="ad7">
-        <span class="card" style="background-image:url('{% static "images/white_card.png" %}');"></span>
+      <div class="ad" id="ad2">
+        <span class="card" style="background-image:url('https://ib.bizmrg.com/amicebox/cards%20for%20site/_Лев%20черная.png');"></span>
       </div>
   </div>
 
@@ -111,11 +113,67 @@
             startPage: document.getElementById("startPage"),
             instructionPage: document.getElementById("instructionPage"),
             sitePage: document.getElementById("sitePage"),
+            elem: document.getElementById("in"),
+            rad1: document.getElementById("rad1"),
+            rad2: document.getElementById("rad2"),
+            rad3: document.getElementById("rad3"),
 
             setPage: function(page) {
                 this.startPage.style.display = page == Page.Start ? "" : "none";
                 this.instructionPage.style.display = page == Page.Instruction ? "" : "none";
                 this.sitePage.style.display = page == Page.Site ? "" : "none";
+            },
+
+            searchSubject: function() {
+              if (this.elem.value == "Менеджмент")
+              {
+                document.getElementById('men1').style.display = "";
+                document.getElementById('men2').style.display = "";
+                document.getElementById('math').style.display = "none";
+                document.getElementById('rus').style.display = "none";
+                document.getElementById('prog').style.display = "none";
+                document.getElementById('ad2').style.display = "";
+              }
+              if (this.elem.value == "Программирование")
+              {
+                document.getElementById('men1').style.display = "none";
+                document.getElementById('men2').style.display = "none";
+                document.getElementById('math').style.display = "none";
+                document.getElementById('rus').style.display = "none";
+                document.getElementById('prog').style.display = "";
+                document.getElementById('ad2').style.display = "none";
+              }
+            },
+
+            filter: function() {
+              if (this.rad1.checked)
+              {
+                document.getElementById('men1').style.display = "";
+                document.getElementById('men2').style.display = "";
+                document.getElementById('math').style.display = "none";
+                document.getElementById('rus').style.display = "";
+                document.getElementById('prog').style.display = "";
+                document.getElementById('ad2').style.display = "none";
+              }
+              if (this.rad2.checked)
+              {
+                document.getElementById('men1').style.display = "none";
+                document.getElementById('men2').style.display = "none";
+                document.getElementById('math').style.display = "";
+                document.getElementById('rus').style.display = "none";
+                document.getElementById('prog').style.display = "none";
+                document.getElementById('ad2').style.display = "";
+              }
+              if (this.rad3.checked)
+              {
+                document.getElementById('men1').style.display = "";
+                document.getElementById('men2').style.display = "";
+                document.getElementById('math').style.display = "";
+                document.getElementById('rus').style.display = "";
+                document.getElementById('prog').style.display = "";
+                document.getElementById('ad2').style.display = "";
+              }
+
             }
         }
         View.setPage(Page.Start);
@@ -161,113 +219,6 @@ card2.onmousedown = function(e) {
     card2.onmouseup = null;
   }
 }
-
-var card3 = document.getElementById('ad3');
-
-card3.onmousedown = function(e) {
-  card3.style.position = 'absolute';
-  moveAt(e);
-  document.body.appendChild(card3);
-  card3.style.zIndex = 1000; // показывать мяч над другими элементами
-  function moveAt(e) {
-    card3.style.left = e.pageX - card3.offsetWidth / 2 + 'px';
-    card3.style.top = e.pageY - card3.offsetHeight / 2 + 'px';
-  }
-  document.onmousemove = function(e) {
-    moveAt(e);
-  }
-
-  card3.onmouseup = function() {
-    document.onmousemove = null;
-    card3.onmouseup = null;
-  }
-}
-
-var card4 = document.getElementById('ad4');
-
-card4.onmousedown = function(e) {
-  card4.style.position = 'absolute';
-  moveAt(e);
-  document.body.appendChild(card4);
-  card4.style.zIndex = 1000; // показывать мяч над другими элементами
-  function moveAt(e) {
-    card4.style.left = e.pageX - card4.offsetWidth / 2 + 'px';
-    card4.style.top = e.pageY - card4.offsetHeight / 2 + 'px';
-  }
-  document.onmousemove = function(e) {
-    moveAt(e);
-  }
-
-  card4.onmouseup = function() {
-    document.onmousemove = null;
-    card4.onmouseup = null;
-  }
-}
-
-var card5 = document.getElementById('ad5');
-
-card5.onmousedown = function(e) {
-  card5.style.position = 'absolute';
-  moveAt(e);
-  document.body.appendChild(card5);
-  card5.style.zIndex = 1000; // показывать мяч над другими элементами
-  function moveAt(e) {
-    card5.style.left = e.pageX - card5.offsetWidth / 2 + 'px';
-    card5.style.top = e.pageY - card5.offsetHeight / 2 + 'px';
-  }
-  document.onmousemove = function(e) {
-    moveAt(e);
-  }
-
-  card5.onmouseup = function() {
-    document.onmousemove = null;
-    card5.onmouseup = null;
-  }
-}
-
-var card6 = document.getElementById('ad6');
-
-card6.onmousedown = function(e) {
-  card6.style.position = 'absolute';
-  moveAt(e);
-  document.body.appendChild(card6);
-  card6.style.zIndex = 1000; // показывать мяч над другими элементами
-  function moveAt(e) {
-    card6.style.left = e.pageX - card6.offsetWidth / 2 + 'px';
-    card6.style.top = e.pageY - card6.offsetHeight / 2 + 'px';
-  }
-  document.onmousemove = function(e) {
-    moveAt(e);
-  }
-
-  card6.onmouseup = function() {
-    document.onmousemove = null;
-    card6.onmouseup = null;
-  }
-}
-
-var card7 = document.getElementById('ad7');
-
-card7.onmousedown = function(e) {
-  card7.style.position = 'absolute';
-  moveAt(e);
-  document.body.appendChild(card7);
-  card7.style.zIndex = 1000; // показывать мяч над другими элементами
-  function moveAt(e) {
-    card7.style.left = e.pageX - card7.offsetWidth / 2 + 'px';
-    card7.style.top = e.pageY - card7.offsetHeight / 2 + 'px';
-  }
-  document.onmousemove = function(e) {
-    moveAt(e);
-  }
-
-  card7.onmouseup = function() {
-    document.onmousemove = null;
-    card7.onmouseup = null;
-  }
-}
-
-
     </script>
 </body>
 
